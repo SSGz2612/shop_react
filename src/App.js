@@ -1,5 +1,6 @@
-import './App.css';
+import Nav from './Components/Nav';
 import Category from './Components/Category';
+import Pdp from './Components/Pdp';
 // Apollo
 import {
   ApolloClient,
@@ -8,7 +9,13 @@ import {
 } from '@apollo/client';
 // Redux
 import { Provider } from 'react-redux';
-import store from "./redux/store"
+import store from "./redux/store";
+// Router
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
@@ -17,11 +24,17 @@ const client = new ApolloClient({
 
 function App() {
   return(
-    <Provider store={ store }>
-    <ApolloProvider client={ client }>
-      <Category />
-    </ApolloProvider>
-    </Provider>
+    <BrowserRouter>
+      <Provider store={ store }>
+        <ApolloProvider client={ client }>
+          <Nav />
+          <Routes>
+              <Route path='/' element={<Category />}/>
+              <Route path='pdp' element={<Pdp />}/>
+          </Routes>
+        </ApolloProvider>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
