@@ -1,5 +1,8 @@
-query prdQuery( $product: String! = "huarache-x-stussy-le" ) {
-    product( id: $product ) {
+import { gql } from "@apollo/client";
+
+export const productQuery = gql`query ctgQuery {
+  category {
+    products {
       id
       name
       inStock
@@ -15,38 +18,39 @@ query prdQuery( $product: String! = "huarache-x-stussy-le" ) {
           value
           id
         }
-      }
+    	}
       prices {
         currency {
           label
           symbol
         }
         amount
+    	}
+      brand
+    }
+  }
+}`
+
+export const categoryQuery = gql`query category($ctg: String!){
+  category(input: { title: $ctg }){
+    products {
+      id
+      name
+      inStock
+      gallery
+      description
+      category
+      prices {
+        amount
       }
       brand
     }
   }
+}`
 
-query ctgQuery( $all: String = "all" ) {
-    category( input: { title: $all }) {
-      products {
-        id
-        name
-        inStock
-        gallery
-        description
-        category
-        prices {
-          amount
-        }
-        brand
-      }
-    }
+export const currency = gql`{
+  currencies {
+    label
+    symbol
   }
-
-  {
-    currencies {
-      label
-      symbol
-    }
-  }
+}`
