@@ -75,9 +75,6 @@ export const Image = styled.div`
 `
 
 export const ImageBlock = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: rgba(255, 255, 255, 0.75);
   color: ${ Third };
   width: 100%;
@@ -90,4 +87,74 @@ export const AddItemBox = styled.div`
   justify-content: end;
   width: 80%;
   height: 0px;
+`
+
+export const Text1 = styled.div`
+  display: flex;
+  width: 360px;
+  padding: 5px 0px;
+`
+
+export const Text2 = styled.div`
+  display: flex;
+  font-size: 20px;
+  padding: 0px 20px;
+`
+
+export const Text3 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 100%;
+  padding: 5px 20px;
+`
+
+export const Text4 = styled.div`
+  display: flex;
+  font-family: RobotoCondensed-Bold;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 0px 0px 20px;
+`
+
+export const Text5 = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  padding: 0 20px;
+  height: 50px;
+`
+
+/** Modal **/
+export const Overview = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba( 0, 0, 0, 0.50 );
+
+@media(max-width: 600px){
+  justify-content: center;
+}
+`
+
+export const ModalContent = styled.div`
+  position: relative;
+  overflow-y: auto;
+  background-color: white;
+  margin: 40px;
+  width: 400px;
+  height: 700px;
+  border-radius: 5px;
+`
+
+export const BotonContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
 `

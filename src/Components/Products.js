@@ -12,7 +12,8 @@ import {
   ContentImage,
   Image,
   ImageBlock,
-  AddItemBox
+  AddItemBox,
+  Text1
 } from "../Controls/styled";
 // Router
 import { Link } from "react-router-dom";
@@ -21,21 +22,21 @@ class Products extends React.Component {
 	render(){
 		return <>
 			{ this.props.data.map((i) =>
-				<Card className="ContentAdd" key={ i.id }>
+				<Card className="contentAdd" key={ i.id }>
 					<ContentBox>
 
             <Link to={{ pathname:`pdp/${ i.id }`}}>
               <ContentImage>
                 { i.inStock === false ?
                   <Image url={ i.gallery[0]}>
-                    <ImageBlock className="textImage">OUT OF STOCK</ImageBlock>
+                    <ImageBlock className="textImage flexBox">OUT OF STOCK</ImageBlock>
                   </Image> : <Image url={ i.gallery[0]}/>
                 }
               </ContentImage>
             </Link>
 
             <AddItemBox>
-              { i.inStock === true ?
+              { i.inStock &&
                 <Query query={ productQuery }>
                   {({ data, loading, error }) => {
                     if(loading) return <div>Loading...</div>
@@ -45,7 +46,7 @@ class Products extends React.Component {
 
                     return(
                       <button
-                        className="addItem"
+                        className="addItem flexBox"
                         onClick={() =>
                           this.props.updateBasket(i.id)}
                       >
@@ -53,9 +54,12 @@ class Products extends React.Component {
                       </button>
                     );
                   }}
-                </Query> : null
+                </Query>
               }
             </AddItemBox>
+
+            <Text1>{ i.name }</Text1>
+            <Text1><b>{ '$' + 10 }</b></Text1>
 
 					</ContentBox>
 				</Card>
@@ -71,7 +75,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     updateBasket: (data) => dispatch(updateBasket(data)),
-    // selectProduct: (data) => dispatch(updateBasket(data))
+    selectProduct: (data) => dispatch(updateBasket(data))
   }
 }
 

@@ -1,7 +1,36 @@
+@font-face {
+  font-family: Raleway-Regular;
+  src: url(../public/fonts/Raleway-Regular.ttf);
+}
+
+@font-face {
+  font-family: Raleway-Medium;
+  src: url(../public/fonts/Raleway-Medium.ttf);
+}
+
+@font-face {
+  font-family: Raleway-SemiBold;
+  src: url(../public/fonts/Raleway-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Raleway-Bold;
+  src: url(../public/fonts/Raleway-Bold.ttf);
+}
+
+@font-face {
+  font-family: Raleway-Light;
+  src: url(../public/fonts/Raleway-Light.ttf);
+}
+
+@font-face {
+  font-family: RobotoCondensed-Bold;
+  src: url(../public/fonts/RobotoCondensed-Bold.ttf);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'Raleway-Regular', 'Segoe UI', 'Roboto', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,9 +51,6 @@ body {
 }
 
 .addItem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: transparent;
   width: 45px;
   height: 45px;
@@ -33,11 +59,11 @@ body {
   cursor: pointer;
 }
 
-.ContentAdd:hover .addItem {
+.contentAdd:hover .addItem {
   background-color: #5ECE7B;
 }
 
-.ContentAdd:hover .shopCar {
+.contentAdd:hover .shopCar {
   background-image: url(../public/tools/shopCarWhite.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,3 +72,19 @@ body {
 }
 
 .textImage, a:link { text-decoration: none; }
+
+.listMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: Black;
+  padding: 0px 15px;
+  height: 50px;
+  border-bottom: 2px solid transparent;
+}
+
+.listMenu:hover {
+  color: #5ECE7B;
+  border-bottom: 2px solid #5ECE7B;
+}

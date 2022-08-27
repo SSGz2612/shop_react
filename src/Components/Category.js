@@ -16,7 +16,7 @@ class Category extends React.Component {
           if(loading) return <div>Loading...</div>;
           if(error) return <div>Error :(</div>;
           
-          console.log(data.category.products);
+          // console.log(data.category.products);
 
           return(
             <Body>
@@ -31,7 +31,7 @@ class Category extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    item: state.item
+    basket: state.basket
   }
 }
 
