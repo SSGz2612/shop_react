@@ -1,6 +1,7 @@
 import Nav from './Components/Nav';
 import Category from './Components/Category';
 import Pdp from './Components/Pdp';
+import CardClient from './Components/CardClient';
 // Apollo
 import {
   ApolloClient,
@@ -31,6 +32,7 @@ function App() {
           <Routes>
               <Route path='/' element={<Category />}/>
               <Route path='pdp' element={<Pdp />}/>
+              <Route path='cardclient' element={<CardClient />}/>
           </Routes>
         </ApolloProvider>
       </Provider>

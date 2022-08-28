@@ -1,13 +1,20 @@
 import React from "react";
 import Menu from "./Menu";
 import Modal from "./Modal";
+// Redux
+import { connect } from "react-redux";
 // Styled
 import {
+	ContentCard,
+	ContentCounter,
+	Counter,
 	NavContent,
-	NavContentBox
+	NavContentBox,
+	SelectBox
 } from "../Controls/styled";
 // Router
 import { Link } from "react-router-dom";
+import Currencies from "./Currencies";
 
 class Nav extends React.Component {
 	constructor(){
@@ -18,9 +25,9 @@ class Nav extends React.Component {
 		}
 	}
 
-	// showCurrency = () => {
-		// 	this.setState({ initialCurrencyBox: true });
-		// }
+	showCurrency = () => {
+		this.setState({ initialCurrencyBox: true });
+	}
 	
 	showModal = () => {
 		this.setState({ initialModal: true });
@@ -37,21 +44,49 @@ class Nav extends React.Component {
 	render(){
 		return(
 			<NavContent>
+
+				<Currencies
+					initialCurrencyBox={ this.state.initialCurrencyBox }
+					handleState={ this.handleState }
+				>
+				</Currencies>
+
 				<NavContentBox>
 
-					<div className="flexBox">
+					<div className="flexCenter">
 						<Menu />
 					</div>
 
-					<div className="flexBox">
+					<div className="flexCenter">
 						<Link to="/">
 							<div className="logo"></div>
 						</Link>
 					</div>
 
-					<div className="flexBox">
-						{/* <div onClick={() => this.showCurrency()}>A</div> */}
-						<div onClick={() => this.showModal()}>B</div>
+					<div className="flexCenter">
+						<div onClick={() => this.showCurrency()}>
+						<SelectBox>
+							{ this.props.currency[2] == "$" ?
+								"$" :
+								this.props.currency[0][2]
+							}
+							<div className="v"></div>
+						</SelectBox>
+						</div>
+						<div onClick={() => this.showModal()}>
+							<ContentCard className="carIcon">
+								{ this.props.basket.length ?
+									<ContentCounter className="flexCenter">
+										<Counter
+											className="flexCenter"
+										>
+											<b>{ this.props.counter }</b>
+										</Counter>
+									</ContentCounter> :
+									false
+								}
+							</ContentCard>
+						</div>
 					</div>
 
 				</NavContentBox>
@@ -68,4 +103,12 @@ class Nav extends React.Component {
 	}
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+	return {
+		basket: state.basket,
+		counter: state.counter,
+		currency: state.currency
+	}
+}
+
+export default connect(mapStateToProps, null)(Nav);

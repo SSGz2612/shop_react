@@ -26,10 +26,10 @@ class Products extends React.Component {
 					<ContentBox>
 
             <Link to={{ pathname:`pdp/${ i.id }`}}>
-              <ContentImage>
+              <ContentImage className="flexCenter">
                 { i.inStock === false ?
                   <Image url={ i.gallery[0]}>
-                    <ImageBlock className="textImage flexBox">OUT OF STOCK</ImageBlock>
+                    <ImageBlock className="textImage flexCenter">OUT OF STOCK</ImageBlock>
                   </Image> : <Image url={ i.gallery[0]}/>
                 }
               </ContentImage>
@@ -46,11 +46,11 @@ class Products extends React.Component {
 
                     return(
                       <button
-                        className="addItem flexBox"
+                        className="addItem flexCenter"
                         onClick={() =>
                           this.props.updateBasket(i.id)}
                       >
-                        <div className="shopCar flexBox"></div>
+                        <div className="shopCar flexCenter"></div>
                       </button>
                     );
                   }}

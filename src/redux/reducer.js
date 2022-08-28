@@ -2,7 +2,7 @@ export const initialState = {
 	basket: [],
 	product: [],
 	page: ["all"],
-	counter: 0,
+	counter: 5,
 	currency: [["USD"], [0], ["$"]]
 }
 
@@ -28,14 +28,15 @@ export const selectPage = (data) => {
 	}
 }
 
+export const changeCurrency = (data) => {
+	return {
+		type: "CHANGE_CURRENCY",
+		payload: data
+	}
+}
+
 const reducer = (state = initialState, action) => {
 	switch(action.type){
-		// case "UPDATE_ITEM":
-		// 	return {
-		// 		...state,
-		// 		item: [...state.item, action.payload]
-		// 	}
-
 		case "UPDATE_BASKET":
 			console.log(action.payload);
 			return {}
@@ -43,13 +44,19 @@ const reducer = (state = initialState, action) => {
 		case "SELECT_BASKET":
 			return {}
 
-		default: return state
-
 		case "SELECT_PAGE":
 			return {
 				...state,
 				page: [action.payload]
 			}
+		
+		case "CHANGE_CURRENCY":
+			return {
+				...state,
+				currency: [action.payload]
+			}
+		
+		default: return state
 	}
 }
 

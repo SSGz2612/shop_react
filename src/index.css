@@ -36,7 +36,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.flexBox {
+.flexCenter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,6 +48,14 @@ body {
   background-size: 40px;
   width: 40px;
   height: 40px;
+}
+
+.carIcon {
+  background-image: url(../public/tools/shopCar.svg);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  width: 40px;
+  height: 30px;
 }
 
 .addItem {
@@ -87,4 +95,20 @@ body {
 .listMenu:hover {
   color: #5ECE7B;
   border-bottom: 2px solid #5ECE7B;
+}
+
+.optionCurrency:checked {
+  height: 50px;
+  border: none;
+}
+
+.v {
+  display: flex;
+  align-items: center;
+  background-image: url(../public/tools/v.svg);
+  background-repeat: no-repeat;
+  background-size: 10px;
+  margin: 0px 10px;
+  width: 10px;
+  height: 5px;
 }
